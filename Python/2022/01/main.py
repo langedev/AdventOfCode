@@ -1,17 +1,16 @@
-input = open("input", 'r')
+input = open("input2", 'r')
 
-data = [0 for _ in range(400)]
+data = []
 
-elf = 0
+elf  = 0
+curr = 0
 
 for line in input:
     if line == "\n":
-        elf += 1
+        data.append(curr)
+        curr = 0
     else:
-        if data[elf]:
-            data[elf] += int(line)
-        else:
-            data[elf] = int(line)
+        curr += int(line)
 
 sortedData = sorted(data, reverse=True)
 
